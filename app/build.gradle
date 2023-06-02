@@ -27,10 +27,13 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 29
+        minSdkVersion 33
+        targetSdkVersion 33
+    }
+    android {
+        namespace 'org.fedorahosted.freeotp'
     }
 
-    compileSdkVersion 29       // NOTE: update build-tools-* in .travis.yml
-    buildToolsVersion '29.0.2' // NOTE: update build-tools-* in .travis.yml
+    compileSdkVersion 33      // NOTE: update build-tools-* in .travis.yml
+    buildToolsVersion '34.0.0-rc4' // NOTE: update build-tools-* in .travis.yml
 }

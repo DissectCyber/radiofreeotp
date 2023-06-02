@@ -145,32 +145,26 @@ public class EditActivity extends BaseActivity implements TextWatcher, View.OnCl
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.image:
-                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN);
-                break;
-
-            case R.id.restore:
-                mLabel.setText(mLabelDefault);
-                mIssuer.setText(mIssuerDefault);
-                mIssuer.setSelection(mIssuer.getText().length());
-                showImage(mImageDefault);
-                break;
-
-            case R.id.save:
-                TokenPersistence tp = new TokenPersistence(this);
-                Token token = tp.get(getPosition());
-                token.setIssuer(mIssuer.getText().toString());
-                token.setLabel(mLabel.getText().toString());
-                token.setImage(mImageDisplay);
-                TokenPersistence.saveAsync(this, token);
-
-            case R.id.cancel:
-                finish();
-                break;
+        if (v.getId() == R.id.image) {
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.setType("image/*");
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            startActivityForResult(intent, REQUEST_IMAGE_OPEN);
+        } else if (v.getId() == R.id.restore) {
+            mLabel.setText(mLabelDefault);
+            mIssuer.setText(mIssuerDefault);
+            mIssuer.setSelection(mIssuer.getText().length());
+            showImage(mImageDefault);
+        } else if (v.getId() == R.id.save) {
+            TokenPersistence tp = new TokenPersistence(this);
+            Token token = tp.get(getPosition());
+            token.setIssuer(mIssuer.getText().toString());
+            token.setLabel(mLabel.getText().toString());
+            token.setImage(mImageDisplay);
+            TokenPersistence.saveAsync(this, token);
+        } else if (v.getId() == R.id.cancel) {
+            finish();
         }
+
     }
 }

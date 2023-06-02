@@ -145,15 +145,14 @@ public class MainActivity extends Activity implements OnMenuItemClickListener {
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()) {
-        case R.id.action_scan:
+        if (item.getItemId() == R.id.action_scan) {
             tryOpenCamera();
             return true;
-
-        case R.id.action_about:
+        } else if (item.getItemId() == R.id.action_about) {
             startActivity(new Intent(this, AboutActivity.class));
             return true;
         }
+
 
         return false;
     }

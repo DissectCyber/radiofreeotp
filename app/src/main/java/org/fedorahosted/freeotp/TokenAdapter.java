@@ -94,19 +94,16 @@ public class TokenAdapter extends BaseReorderableAdapter {
             public boolean onMenuItemClick(MenuItem item) {
                 Intent i;
 
-                switch (item.getItemId()) {
-                    case R.id.action_edit:
-                        i = new Intent(ctx, EditActivity.class);
-                        i.putExtra(EditActivity.EXTRA_POSITION, position);
-                        ctx.startActivity(i);
-                        break;
-
-                    case R.id.action_delete:
-                        i = new Intent(ctx, DeleteActivity.class);
-                        i.putExtra(DeleteActivity.EXTRA_POSITION, position);
-                        ctx.startActivity(i);
-                        break;
+                if (item.getItemId() == R.id.action_edit) {
+                    i = new Intent(ctx, EditActivity.class);
+                    i.putExtra(EditActivity.EXTRA_POSITION, position);
+                    ctx.startActivity(i);
+                } else if (item.getItemId() == R.id.action_delete) {
+                    i = new Intent(ctx, DeleteActivity.class);
+                    i.putExtra(DeleteActivity.EXTRA_POSITION, position);
+                    ctx.startActivity(i);
                 }
+
 
                 return true;
             }
