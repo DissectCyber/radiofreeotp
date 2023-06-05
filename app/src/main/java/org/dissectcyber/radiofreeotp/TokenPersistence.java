@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-package org.fedorahosted.freeotp;
+package org.dissectcyber.radiofreeotp;
 
 import android.content.Context;
 import android.content.Intent;
@@ -32,7 +32,7 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 
-import org.fedorahosted.freeotp.Token.TokenUriInvalidException;
+import org.dissectcyber.radiofreeotp.Token.TokenUriInvalidException;
 
 import java.io.File;
 import java.io.FileOutputStream;

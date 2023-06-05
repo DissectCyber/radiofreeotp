@@ -1,4 +1,4 @@
-package org.fedorahosted.freeotp;
+package org.dissectcyber.radiofreeotp;
 
 import org.junit.Before;
 import org.junit.Test;

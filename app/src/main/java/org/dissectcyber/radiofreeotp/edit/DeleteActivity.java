@@ -1,8 +1,8 @@
-package org.fedorahosted.freeotp.edit;
+package org.dissectcyber.radiofreeotp.edit;
 
-import org.fedorahosted.freeotp.R;
-import org.fedorahosted.freeotp.Token;
-import org.fedorahosted.freeotp.TokenPersistence;
+import org.dissectcyber.radiofreeotp.R;
+import org.dissectcyber.radiofreeotp.Token;
+import org.dissectcyber.radiofreeotp.TokenPersistence;
 
 import android.os.Bundle;
 import android.view.View;

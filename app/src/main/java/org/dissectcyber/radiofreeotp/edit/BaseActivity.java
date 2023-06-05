@@ -1,4 +1,4 @@
-package org.fedorahosted.freeotp.edit;
+package org.dissectcyber.radiofreeotp.edit;
 
 import android.app.Activity;
 import android.os.Bundle;

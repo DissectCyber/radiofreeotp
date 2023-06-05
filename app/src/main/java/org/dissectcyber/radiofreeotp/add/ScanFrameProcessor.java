@@ -20,15 +20,22 @@
  * limitations under the License.
  */
 
-package org.fedorahosted.freeotp.add;
+package org.dissectcyber.radiofreeotp.add;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
+
 import com.google.zxing.*;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
+
+import java.util.EnumMap;
+import java.util.EnumSet;
+import java.util.Map;
+
 import io.fotoapparat.preview.Frame;
 import io.fotoapparat.preview.FrameProcessor;
 
@@ -52,7 +59,11 @@ public class ScanFrameProcessor implements FrameProcessor {
                     LuminanceSource ls = new PlanarYUVLuminanceSource(
                             frame.image, frame.size.width, frame.size.height,
                             0, 0, frame.size.width, frame.size.height, false);
-                    Result r = reader.decode(new BinaryBitmap(new HybridBinarizer(ls)));
+                    Map<DecodeHintType,Object> tmpHintsMap = new EnumMap<DecodeHintType, Object>(DecodeHintType.class);
+                    tmpHintsMap.put(DecodeHintType.TRY_HARDER, Boolean.TRUE);
+//                    tmpHintsMap.put(DecodeHintType.POSSIBLE_FORMATS, EnumSet.allOf(BarcodeFormat.class));
+//                    tmpHintsMap.put(DecodeHintType.PURE_BARCODE, Boolean.FALSE);
+                    Result r = reader.decode(new BinaryBitmap(new HybridBinarizer(ls)), tmpHintsMap);
                     sendTextToActivity(r.getText());
                 }
                 catch (Exception e) {

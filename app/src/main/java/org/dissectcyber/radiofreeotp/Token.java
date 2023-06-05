@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-package org.fedorahosted.freeotp;
+package org.dissectcyber.radiofreeotp;
 
 import java.io.File;
 import java.nio.ByteBuffer;

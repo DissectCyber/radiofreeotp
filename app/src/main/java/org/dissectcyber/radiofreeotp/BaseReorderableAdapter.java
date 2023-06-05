@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-package org.fedorahosted.freeotp;
+package org.dissectcyber.radiofreeotp;
 
 import android.content.ClipData;
 import android.view.DragEvent;

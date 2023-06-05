@@ -36,12 +36,13 @@
  * limitations under the License.
  */
 
-package org.fedorahosted.freeotp;
+package org.dissectcyber.radiofreeotp;
 
 import android.Manifest;
+import android.util.Log;
 import android.widget.Toast;
 
-import org.fedorahosted.freeotp.add.ScanActivity;
+import org.dissectcyber.radiofreeotp.add.ScanActivity;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -178,8 +179,12 @@ public class MainActivity extends Activity implements OnMenuItemClickListener {
         super.onNewIntent(intent);
 
         Uri uri = intent.getData();
+
         if (uri != null) {
+            Log.i("ok", uri.toString());
+
             try {
+                Log.i("ok", uri.toString());
                 TokenPersistence.saveAsync(this, new Token(uri));
             } catch (Token.TokenUriInvalidException e) {
                 e.printStackTrace();

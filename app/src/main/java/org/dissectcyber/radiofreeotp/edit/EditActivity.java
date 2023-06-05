@@ -18,13 +18,13 @@
  * limitations under the License.
  */
 
-package org.fedorahosted.freeotp.edit;
+package org.dissectcyber.radiofreeotp.edit;
 
 import android.widget.Toast;
 
-import org.fedorahosted.freeotp.R;
-import org.fedorahosted.freeotp.Token;
-import org.fedorahosted.freeotp.TokenPersistence;
+import org.dissectcyber.radiofreeotp.R;
+import org.dissectcyber.radiofreeotp.Token;
+import org.dissectcyber.radiofreeotp.TokenPersistence;
 
 import android.content.Intent;
 import android.net.Uri;

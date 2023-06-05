@@ -27,13 +27,13 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 33
-        targetSdkVersion 33
+        minSdkVersion 27
+        targetSdkVersion 27
     }
     android {
-        namespace 'org.fedorahosted.freeotp'
+        namespace 'org.dissectcyber.radiofreeotp'
     }
 
-    compileSdkVersion 33      // NOTE: update build-tools-* in .travis.yml
+    compileSdkVersion 27      // NOTE: update build-tools-* in .travis.yml
     buildToolsVersion '34.0.0-rc4' // NOTE: update build-tools-* in .travis.yml
 }

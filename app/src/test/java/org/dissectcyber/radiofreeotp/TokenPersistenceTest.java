@@ -1,4 +1,4 @@
-package org.fedorahosted.freeotp;
+package org.dissectcyber.radiofreeotp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,7 +18,7 @@ import org.mockito.stubbing.Answer;
 
 import java.util.LinkedHashMap;
 
-import static org.fedorahosted.freeotp.TokenTestUtils.mockToken;
+import static org.dissectcyber.radiofreeotp.TokenTestUtils.mockToken;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;

@@ -20,11 +20,11 @@
  * limitations under the License.
  */
 
-package org.fedorahosted.freeotp.add;
+package org.dissectcyber.radiofreeotp.add;
 
-import org.fedorahosted.freeotp.R;
-import org.fedorahosted.freeotp.Token;
-import org.fedorahosted.freeotp.TokenPersistence;
+import org.dissectcyber.radiofreeotp.R;
+import org.dissectcyber.radiofreeotp.Token;
+import org.dissectcyber.radiofreeotp.TokenPersistence;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -33,6 +33,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import com.squareup.picasso.Callback;
@@ -69,48 +70,56 @@ public class ScanActivity extends Activity {
     private void addTokenAndFinish(String text) {
         Token token = null;
         try {
+            Log.i("TOKEN TEXT", text);
             token = new Token(text);
+
         } catch (Token.TokenUriInvalidException e) {
             e.printStackTrace();
         }
 
         //do not receive any more broadcasts
         this.unregisterReceiver(receiver);
-
+        if(token == null){
+            Log.i("Actual", "actual token is null");
+        }
+//        if (token == null || token.getImage() == null) {
+//            Log.i("faileD", "here");
+//            finish();
+//            return;
+//        }
         //check if token already exists
         if (new TokenPersistence(ScanActivity.this).tokenExists(token)) {
             finish();
             return;
         }
-
+        Log.i("HMMM", "we're here");
         TokenPersistence.saveAsync(ScanActivity.this, token);
-        if (token == null || token.getImage() == null) {
-            finish();
-            return;
-        }
 
-        final ImageView image = (ImageView) findViewById(R.id.image);
-        Picasso.with(ScanActivity.this)
-                .load(token.getImage())
-                .placeholder(R.drawable.scan)
-                .into(image, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        findViewById(R.id.progress).setVisibility(View.INVISIBLE);
-                        image.setAlpha(0.9f);
-                        image.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                finish();
-                            }
-                        }, 2000);
-                    }
+        finish();
+        return;
 
-                    @Override
-                    public void onError() {
-                        finish();
-                    }
-                });
+//        final ImageView image = (ImageView) findViewById(R.id.image);
+//        Picasso.with(ScanActivity.this)
+//                .load(token.getImage())
+//                .placeholder(R.drawable.scan)
+//                .into(image, new Callback() {
+//                    @Override
+//                    public void onSuccess() {
+//                        findViewById(R.id.progress).setVisibility(View.INVISIBLE);
+//                        image.setAlpha(0.9f);
+//                        image.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                finish();
+//                            }
+//                        }, 2000);
+//                    }
+//
+//                    @Override
+//                    public void onError() {
+//                        finish();
+//                    }
+//                });
     }
 
     @Override
